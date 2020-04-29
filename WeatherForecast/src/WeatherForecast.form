@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Menu class="javax.swing.JMenuBar" name="MenuBar">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="MenuBar.setBackground(red);"/>
+      </AuxValues>
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="FileMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="File"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="JMenuItem quitItem = new JMenuItem(&quot;Quit&quot;);&#xa;        quitItem.addActionListener(new ActionListener(){&#xa;            @Override&#xa;            public void actionPerformed(ActionEvent ae) {&#xa;                dispatchEvent(new WindowEvent(WeatherForecast.this, WindowEvent.WINDOW_CLOSING));&#xa;            }&#xa;        });&#xa;        quitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));&#xa;        FileMenu.add(quitItem);&#xa;&#xa;JMenuItem OverrideItem = new JMenuItem(&quot;Override icon&quot;);&#xa;        OverrideItem.addActionListener(new ActionListener(){&#xa;            @Override&#xa;            public void actionPerformed(ActionEvent ae) {&#xa;&#xa;                try&#xa;                {&#xa;                    JFileChooser openFile = new JFileChooser();&#xa;                    openFile.setCurrentDirectory(new File(&quot;./images&quot;));&#xa;                    String[] imageFormats = new String[] {&quot;jpg&quot;,&quot;jpeg&quot;, &quot;bmp&quot;,&quot;png&quot;};&#xa;                    FileFilter filter = new FileNameExtensionFilter(&quot;Image file&quot;, imageFormats);&#xa;&#xa;                    openFile.setFileFilter(filter);&#xa;                    openFile.addChoosableFileFilter(filter);&#xa;&#xa;                    if(openFile.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)&#xa;                    {&#xa;                        String filename = openFile.getSelectedFile().getPath();&#xa;&#xa;                        Weather_Icon.setImage(filename);&#xa;&#xa;                        Message_Label.setText(&quot;Icon has been overriden.&quot;);&#xa;                    }&#xa;                    else&#xa;                    {&#xa;                        Message_Label.setText(&quot;Overriding command cancelled by user.&quot;);&#xa;                    }&#xa;                }&#xa;                catch(Exception e)&#xa;                {&#xa;                    Message_Label.setText(&quot;Error opening file...&quot;);&#xa;                }&#xa;                &#xa;            }&#xa;        });&#xa;        OverrideItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));&#xa;        FileMenu.add(OverrideItem);"/>
+          </AuxValues>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="MenuBar"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="SetIcon_Button" min="-2" pref="180" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="DegreesTextField" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Degrees_Label" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Night_CheckBox" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Precipitations_CheckBox" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Fahrenheit_CheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="TodaysWeather_Button" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="Weather_Icon" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="Message_Label" max="32767" attributes="0"/>
+                          <Component id="Title_Label" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="Copyright_Label" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="Title_Label" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Degrees_Label" min="-2" max="-2" attributes="0"/>
+                          <Component id="DegreesTextField" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="Precipitations_CheckBox" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="Night_CheckBox" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Fahrenheit_CheckBox" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="Weather_Icon" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="SetIcon_Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TodaysWeather_Button" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Message_Label" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Copyright_Label" min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="Title_Label">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Weather Forecast"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Title_Label.setHorizontalAlignment(SwingConstants.CENTER);&#xa;Title_Label.setVerticalAlignment(SwingConstants.CENTER);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="DegreesTextField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Degrees_Label">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Degrees"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="Precipitations_CheckBox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Precipitations?"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Precipitations_CheckBox.setBackground(gray);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="Night_CheckBox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Night?"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Night_CheckBox.setBackground(gray);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="Fahrenheit_CheckBox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fahrenheit?"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Fahrenheit_CheckBox.setBackground(gray);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="SetIcon_Button">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Set Icon"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SetIcon_ButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="SetIcon_Button.setBackground(white);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="TodaysWeather_Button">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Today&apos;s weather"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodaysWeather_ButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="TodaysWeather_Button.setBackground(white);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Message_Label">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Please enter degrees and choose selection."/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Message_Label.setHorizontalAlignment(SwingConstants.CENTER);&#xa;Message_Label.setVerticalAlignment(SwingConstants.CENTER);"/>
+      </AuxValues>
+    </Component>
+    <Container class="weatherforecast.ImagePanel" name="Weather_Icon">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="136" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="139" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Component class="javax.swing.JLabel" name="Copyright_Label">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="10" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xa9;Jasen Ratnam 1622549"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
